@@ -1,0 +1,48 @@
+class Program
+{
+    static void Main()
+    {
+        // Input: Days of the plunder
+        Console.Write("Enter the number of days: ");
+        int days = int.Parse(Console.ReadLine());
+
+        // Input: Daily plunder
+        Console.Write("Enter the daily plunder: ");
+        int dailyPlunder = int.Parse(Console.ReadLine());
+
+        // Input: Expected plunder
+        Console.Write("Enter the target plunder: ");
+        double targetPlunder = double.Parse(Console.ReadLine());
+
+        double totalPlunder = 0;
+
+        for (int day = 1; day <= days; day++)
+        {
+            // Add daily plunder
+            totalPlunder += dailyPlunder;
+
+            // Every 3rd day, add 50% of the daily plunder
+            if (day % 3 == 0)
+            {
+                totalPlunder += dailyPlunder * 0.5;
+            }
+
+            // Every 5th day, lose 30% of the total plunder
+            if (day % 5 == 0)
+            {
+                totalPlunder -= totalPlunder * 0.3;
+            }
+        }
+
+        // Output results
+        if (totalPlunder >= targetPlunder)
+        {
+            Console.WriteLine($"Ahoy! {totalPlunder:F2} plunder gained.");
+        }
+        else
+        {
+            double percentage = (totalPlunder / targetPlunder) * 100;
+            Console.WriteLine($"Collected only {percentage:F2}% of the plunder.");
+        }
+    }
+}
