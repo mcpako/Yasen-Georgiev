@@ -3,7 +3,6 @@ class Program
     static void Main()
     {
         // Input: Days of the plunder
-        Console.Write("Enter the number of days: ");
         int days = int.Parse(Console.ReadLine());
 
         // Input: Daily plunder
